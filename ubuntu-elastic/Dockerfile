@@ -21,9 +21,8 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # install elasticsearch
 RUN groupadd -g 1000 elasticsearch && useradd elasticsearch -u 1000 -g 1000
-RUN wget -O elasticsearch.zip https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/zip/elasticsearch/2.4.6/elasticsearch-2.4.6.zip \
-    && unzip elasticsearch.zip \
-    && rm -f elasticsearch.zip \
+RUN wget -O elasticsearch.tar.gz https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.6/elasticsearch-2.4.6.tar.gz \
+    && for file in elasticsearch.tar.gz; do tar xzvf "${file}" && rm "${file}"; done \
     && mv elasticsearch* elasticsearch \
     && mv elasticsearch /usr/share/elasticsearch
 

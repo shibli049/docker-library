@@ -1,8 +1,6 @@
-# vesrion  0.0.2
-FROM alpine:latest
+# vesrion  0.0.3
+FROM openjdk:8-jre-alpine
 LABEL maintainer="Tahmim Ahmed Shibli <shibli05 at gmail>"
-
-RUN apk --update add openjdk8
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
 
@@ -39,3 +37,4 @@ EXPOSE 9200 9300
 
 # run the docker: 
 # cd /mnt/devlnx/es/es-docker; docker run --restart unless-stopped -d --name es-alpine-server -p 9200:9200 -p 9300:9300 --mount type=bind,src="$(pwd)/data",target=/usr/share/elasticsearch/data alpine-es
+# 
